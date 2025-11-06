@@ -1,9 +1,14 @@
-from monster import Monster
+# from monster import Monster
 import game
 
-class Orc(Monster):
-    def __init__(self, name, hp, speed, power, armor_rating, weapon):
-        super().__init__(name, hp, speed, power, armor_rating, weapon)
+class Orc:
+    def __init__(self, name: str, hp: int, speed: int, power: int, armor_rating: int, weapon: str):
+        self.name = name
+        self.hp = hp
+        self.speed = speed
+        self.power = power
+        self.armor_rating = armor_rating
+        self.weapon = weapon
         self.type = "orc"
 
     def speak(self):
