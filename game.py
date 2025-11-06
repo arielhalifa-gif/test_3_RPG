@@ -61,12 +61,14 @@ class Game:
         while stil_alive:
             calculate_atack = Game.roll_dice(20) + atacking.speed
             if calculate_atack > atacked.armor_rating: # פגיעה
+                print(f"{atacking.name} atack")
                 atacked.hp -= atacking.attack()
                 atacked.speak()
+                Game.print_statistics(atacked)
                 if atacked.hp < 0:
                     stil_alive = False
             atacking, atacked = atacked, atacking
-        if atacking.name == player.name:
+        if atacking.name == player.name:#בדיקה אחרי החלפה של השחקנים
             return monster
         else:
             return player
@@ -76,3 +78,18 @@ class Game:
     @staticmethod
     def roll_dice(sides):
         return random.randint(1,sides)
+    
+
+    @staticmethod
+    def print_statistics(character):
+        print(f"""name: {character.name}
+hp: {character.hp}\n""")
+        
+
+    @staticmethod
+    def print_statistics_start(character):
+        print(f"""name: {character.name}
+hp: {character.hp}
+speed: {character.speed}
+power: {character.power}
+armor raiting: {character.armor_rating}""")
