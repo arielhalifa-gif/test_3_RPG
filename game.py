@@ -66,7 +66,7 @@ class Game:
                 if atacked.hp < 0:
                     stil_alive = False
             atacking, atacked = atacked, atacking
-        if player.hp < 0:
+        if atacking.name == player.name:
             return monster
         else:
             return player
