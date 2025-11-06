@@ -1,14 +1,9 @@
-# from monster import Monster
+from core.monster import Monster
 import game
 
-class Goblin:
+class Goblin(Monster):
     def __init__(self, name: str, hp: int, speed: int, power: int, armor_rating: int, weapon: str):
-        self.name = name
-        self.hp = hp
-        self.speed = speed
-        self.power = power
-        self.armor_rating = armor_rating
-        self.weapon = weapon
+        super().__init__(name, hp, speed, power, armor_rating, weapon)
         self.type = "goblin"
 
     def speak(self):
